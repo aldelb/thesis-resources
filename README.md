@@ -1,6 +1,6 @@
 # Automatic objective metric for the optimization of nonverbal behavior generative models
 
-This is the repository that contains source code for the [website](https://nerfies.github.io).
+This is the repository that contains source code for the [website](https://aldelb.github.io/thesis-resources/).
 
 This website was created using the source code provided in the study:
 ```
