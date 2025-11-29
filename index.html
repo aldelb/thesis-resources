@@ -40,6 +40,30 @@
   <script src="./static/js/index.js"></script>
 </head>
 
+
+<script>
+  // Sélection de toutes les sections à suivre
+  const sections = document.querySelectorAll("section[id]");
+
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5  // La section devient active quand 50% est visible
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        history.replaceState(null, "", "#" + entry.target.id);
+      }
+    });
+  }, options);
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
 <body>
 
   <!-- <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -279,7 +303,7 @@
     <!-- </div>
   </section> -->
 
-  <section class="section">
+  <section class="section" id="dataset">
     <div class="container is-max-desktop">
       <!-- Paper video. -->
       <div class="columns is-centered has-text-centered">
@@ -287,8 +311,15 @@
           <h3 class="title is-3">Chapter X - Dataset <em>Trueness</em></h3>
           <div class="content has-text-justified">
           <p>
-            <strong>Examples of 4 interactions from the Trueness dataset</strong><br>
-            <ul>
+            <strong>Examples of 4 interactions from the Trueness dataset.</strong><br>
+          We edited the videos so that the two participants appear side-by-side,
+          with their recordings respectively on the left and on the right. 
+          The <em>perpetrator</em> of the discriminatory behavior always appears on the right. This participant is the one 
+          receiving the instruction regarding which social attitude to enact. The participant on the left, the <em>victim</em> 
+          in context scenes or the <em>witness</em> in conflict scenes, adapts their behavior accordingly.<br><br>
+          
+          4 examples are provided in the playlist, illustrating the following settings:
+          <ul>
               <li>Context scene</li>
               <li>Conflict scene with conciliatory attitude</li>
               <li>Conflict scene with hot anger attitude</li>
@@ -311,10 +342,11 @@
 
           <p>
             <strong>Examples of feature extraction replayed on a virtual agent</strong><br>
+            4 examples are provided in the playlist, illustrating the following settings:
             <ul>
-              <li>Without preprocessing (Greta)</li>
-              <li>With preprocessing (Greta)</li>
-              <li>With preprocessing (Retorik)</li>
+              <li>Without preprocessing (Greta SIA)</li>
+              <li>With preprocessing (Greta SIA)</li>
+              <li>With preprocessing (Retorik SIA)</li>
             </ul>
           </p>
 
@@ -338,7 +370,7 @@
 
 
   <!-- FACEGEN -->
-  <section class="section">
+  <section class="section" id="facegen">
     <div class="container is-max-desktop">
 
       <div class="columns is-centered has-text-centered">
@@ -395,7 +427,7 @@
 
 
   <!-- EVAL -->
-  <section class="section">
+  <section class="section" id="evaluation">
     <div class="container is-max-desktop">
 
       <div class="columns is-centered has-text-centered">
@@ -451,7 +483,7 @@
 
 
   <!-- FACEATTGEN -->
-  <section class="section">
+  <section class="section" id="faceattgen">
     <div class="container is-max-desktop">
 
       <div class="columns is-centered has-text-centered">
@@ -459,22 +491,73 @@
           <h3 class="title is-3">Chapter X - <em>FaceAttGen</em></h3>
           <div class="content has-text-justified">
             <p>
-              Exemples de video, evaluation subjective, code du modele
+            <strong>Visualisation of the four excerpts for each condition</strong><br>
+            We edited the videos so that the speech of both participants is clearly audible.
+            For each condition, four examples are provided, corresponding to the four excerpts used in the evaluation.
             </p>
 
             <span class="link-block">
-              <a href="https://www.youtube.com/playlist?list=PLRyxHB7gYN-Cs127qTMJIR78fsQu_8tZQ"
+              <a href="https://www.youtube.com/playlist?list=PLRyxHB7gYN-CfKqth510mML5jYUJLt3lm"
                   class="external-link button is-normal is-rounded is-dark" target="_blank">
                 <span class="icon">
                     <i class="fab fa-youtube"></i>
                 </span>
-                <span>Videos</span>
+                <span><em>FaceAttGen</em> - condition <em>Implicit</em></span>
+              </a>
+            </span><br>
+
+            <span class="link-block">
+              <a href="https://www.youtube.com/playlist?list=PLRyxHB7gYN-D_uVbov5D-nBBy0zCM9CGl"
+                  class="external-link button is-normal is-rounded is-dark" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-youtube"></i>
+                </span>
+                <span><em>FaceAttGen</em> - condition <em>Anger conditioned</em></span>
               </a>
             </span>
 
 
+            <!-- <span class="link-block">
+              <a href="https://www.youtube.com/playlist?list=PLRyxHB7gYN-D_uVbov5D-nBBy0zCM9CGl"
+                  class="external-link button is-normal is-rounded is-dark" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-youtube"></i>
+                </span>
+                <span>Watch the videos</span>
+              </a>
+            </span> -->
+
+            <!-- <span class="link-block">
+              <a href="https://www.youtube.com/playlist?list=PLRyxHB7gYN-D_uVbov5D-nBBy0zCM9CGl"
+                  class="external-link button is-normal is-rounded is-dark" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-youtube"></i>
+                </span>
+                <span>Watch the videos</span>
+              </a>
+            </span> -->
+
+            <!-- <span class="link-block">
+              <a href="https://www.youtube.com/playlist?list=PLRyxHB7gYN-D_uVbov5D-nBBy0zCM9CGl"
+                  class="external-link button is-normal is-rounded is-dark" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-youtube"></i>
+                </span>
+                <span>Watch the videos</span>
+              </a>
+            </span> -->
+
+            
+            <hr>
+
+            <p>
+              <strong>Code and Evaluation Website</strong><br>
+              The full implementation of our models is available in the GitHub repository below.  
+              We also provide links to the online evaluation platforms used for our different user studies.
+            </p>
+
             <span class="link-block">
-              <a href="https://pageperso.lis-lab.fr/alice.delbosc/video_evaluation_fr/"
+              <a href="https://pageperso.lis-lab.fr/alice.delbosc/evalOctobre2025_attitude/"
                   class="external-link button is-normal is-rounded is-dark" target="_blank">
                 <span class="icon">
                     <i class="fas fa-users"></i>
@@ -482,7 +565,6 @@
                 <span>Evaluation</span>
               </a>
             </span>
-
 
             <span class="link-block">
               <a href="https://github.com/aldelb/non_verbal_facial_animation"
@@ -506,7 +588,7 @@
 
 
   <!-- FAIRGENDERGEN -->
-  <section class="section">
+  <section class="section" id="fairgendergen">
     <div class="container is-max-desktop">
 
       <div class="columns is-centered has-text-centered">
