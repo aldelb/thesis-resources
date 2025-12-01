@@ -64,6 +64,17 @@
   });
 </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("toggle-sommaire");
+    const content = document.getElementById("sommaire-content");
+
+    toggle.addEventListener("click", () => {
+      content.style.display = content.style.display === "none" ? "block" : "none";
+    });
+  });
+</script>
+
 <body>
 
   <!-- <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -204,6 +215,29 @@
     </div>
     </div>
   </section>
+
+
+<section class="section" id="sommaire">
+  <div class="container is-max-desktop">
+    
+    <div class="box">
+      <a class="button is-dark is-fullwidth" id="toggle-sommaire">
+        📚 Table of Contents
+      </a>
+
+      <div id="sommaire-content" style="display: none; margin-top: 15px;">
+        <ul>
+          <li><a href="#dataset">Chapter 3 – Dataset <em>Trueness</em></a></li>
+          <li><a href="#facegen">Chapter 4 – <em>FaceGen</em></a></li>
+          <li><a href="#evaluation">Chapter 5 – Objective evaluation</a></li>
+          <li><a href="#faceattgen">Chapter 6 – <em>FaceAttGen</em></a></li>
+          <li><a href="#fairgendergen">Chapter 7 – <em>FairGenderGen</em></a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
 
   <!-- <section class="hero teaser">
   <div class="container is-max-desktop">
